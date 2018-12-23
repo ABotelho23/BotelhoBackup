@@ -1,10 +1,10 @@
-@title Staples Store #17 Tech Backup, Migration and Folder Cloning script
+@title BotelhoBackup: Backup, Migration and Folder Cloning script
 @echo off
 openfiles > NUL 2>&1
 if NOT %ERRORLEVEL% EQU 0 goto :NotAdmin
 echo. ----------------------------------------------------------------------
-echo. Welcome to Staples Store #17 Tech Backup, Migration and Folder Cloning script!
-echo. See https://github.com/ABotelho23/s017Backup for more information
+echo. Welcome to BotelhoBackup: Backup, Migration and Folder Cloning script!
+echo. See https://github.com/ABotelho23/BotelhoBackup for more information
 echo. Created by Alex Botelho with the help of Aaron Langlois and Thomas Belway
 echo. ----------------------------------------------------------------------
 goto :mainmenu
@@ -66,36 +66,36 @@ IF NOT EXIST "%backDestLet%:\" GOTO :invalidletterback
 IF NOT EXIST "C:\Users" GOTO :xpBackup
 
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-echo. Valid selection. Starting Backup from C:\Users to "%backDestLet%:\StaplesBackup\Users" in 10 seconds.
+echo. Valid selection. Starting Backup from C:\Users to "%backDestLet%:\BotelhoBackup\Users" in 10 seconds.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 TIMEOUT 10
 echo. STARTING BACKUP NOW!
 
-mkdir "%backDestLet%:\StaplesBackup"
-mkdir "%backDestLet%:\StaplesBackup\Backup"
-mkdir "%backDestLet%:\StaplesBackup\Backup\Users"
-robocopy "C:\Users" "%backDestLet%:\StaplesBackup\Backup\Users" /v /log+:"%backDestLet%:\StaplesBackup\backupLog.txt" /e /zb /mt:4 /r:3 /w:3 /copy:dt /tee /eta /xj /xf "NTUSER.DAT" /xf "NTUSER.DAT*" /xf "NTUSER.DAT.*" /xf "NETUSER.DAT" /xf "NETUSER.DAT*" /xf "dat.*" /xf "desktop.ini" /xd "OneDrive" /xd "Local Settings" /xd "AppData" /xd "Application Data" /xd "C:\Users\All Users" /xd "C:\Users\Default User" /xd "C:\Users\Default" /xd "C:\Users\DefaultAppPool" /xd "C:\Users\Default.migrated"
+mkdir "%backDestLet%:\BotelhoBackup"
+mkdir "%backDestLet%:\BotelhoBackup\Backup"
+mkdir "%backDestLet%:\BotelhoBackup\Backup\Users"
+robocopy "C:\Users" "%backDestLet%:\BotelhoBackup\Backup\Users" /v /log+:"%backDestLet%:\BotelhoBackup\backupLog.txt" /e /zb /mt:4 /r:3 /w:3 /copy:dt /tee /eta /xj /xf "NTUSER.DAT" /xf "NTUSER.DAT*" /xf "NTUSER.DAT.*" /xf "NETUSER.DAT" /xf "NETUSER.DAT*" /xf "dat.*" /xf "desktop.ini" /xd "OneDrive" /xd "Local Settings" /xd "AppData" /xd "Application Data" /xd "C:\Users\All Users" /xd "C:\Users\Default User" /xd "C:\Users\Default" /xd "C:\Users\DefaultAppPool" /xd "C:\Users\Default.migrated"
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 echo. BACKUP COMPLETE. Please verify. Displaying log file.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-start "" "%backDestLet%:\StaplesBackup\backupLog.txt"
+start "" "%backDestLet%:\BotelhoBackup\backupLog.txt"
 GOTO :end
 
 :xpBackup
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-echo. Valid selection. XP Installation detected. Starting Backup from C:\Documents and Settings to "%backDestLet%:\StaplesBackup\Users" in 10 seconds.
+echo. Valid selection. XP Installation detected. Starting Backup from C:\Documents and Settings to "%backDestLet%:\BotelhoBackup\Users" in 10 seconds.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 TIMEOUT 10
 echo. STARTING XP BACKUP NOW!
 
-mkdir "%backDestLet%:\StaplesBackup"
-mkdir "%backDestLet%:\StaplesBackup\Backup"
-mkdir "%backDestLet%:\StaplesBackup\Backup\Users"
-robocopy "C:\Documents and Settings" "%backDestLet%:\StaplesBackup\Backup\Users" /v /log+:"%backDestLet%:\StaplesBackup\backupLog.txt" /e /zb /mt:4 /r:3 /w:3 /copy:dt /tee /eta /xj /xf "NTUSER.DAT" /xf "NTUSER.DAT*" /xf "NTUSER.DAT.*" /xf "NETUSER.DAT" /xf "NETUSER.DAT*" /xf "dat.*" /xf "desktop.ini" /xd "OneDrive" /xd "Local Settings" /xd "AppData" /xd "Application Data" /xd "C:\Documents and Settings\All Users" /xd "C:\Documents and Settings\Default User" /xd "C:\Documents and Settings\Default" /xd "C:\Documents and Settings\DefaultAppPool" /xd "C:\Documents and Settings\Default.migrated"
+mkdir "%backDestLet%:\BotelhoBackup"
+mkdir "%backDestLet%:\BotelhoBackup\Backup"
+mkdir "%backDestLet%:\BotelhoBackup\Backup\Users"
+robocopy "C:\Documents and Settings" "%backDestLet%:\BotelhoBackup\Backup\Users" /v /log+:"%backDestLet%:\BotelhoBackup\backupLog.txt" /e /zb /mt:4 /r:3 /w:3 /copy:dt /tee /eta /xj /xf "NTUSER.DAT" /xf "NTUSER.DAT*" /xf "NTUSER.DAT.*" /xf "NETUSER.DAT" /xf "NETUSER.DAT*" /xf "dat.*" /xf "desktop.ini" /xd "OneDrive" /xd "Local Settings" /xd "AppData" /xd "Application Data" /xd "C:\Documents and Settings\All Users" /xd "C:\Documents and Settings\Default User" /xd "C:\Documents and Settings\Default" /xd "C:\Documents and Settings\DefaultAppPool" /xd "C:\Documents and Settings\Default.migrated"
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 echo. BACKUP COMPLETE. Please verify. Displaying log file.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-start "" "%backDestLet%:\StaplesBackup\backupLog.txt"
+start "" "%backDestLet%:\BotelhoBackup\backupLog.txt"
 GOTO :end
 
 :migration
@@ -103,16 +103,16 @@ set /P migSrcLet=What is the drive letter of the drive to migrate from?
 IF "%migSrcLet%"=="c" GOTO :cantusecmig
 IF "%migSrcLet%"=="C" GOTO :cantusecmig
 IF NOT EXIST "%migSrcLet%:\" GOTO :invalidlettermig
-IF NOT EXIST "%migSrcLet%:\StaplesBackup" GOTO :nobackupfound
+IF NOT EXIST "%migSrcLet%:\BotelhoBackup" GOTO :nobackupfound
 
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-echo. Valid selection. Starting Migration from "%migSrcLet%:\StaplesBackup\Backup\Users" to "C:\Users" in 10 seconds.
+echo. Valid selection. Starting Migration from "%migSrcLet%:\BotelhoBackup\Backup\Users" to "C:\Users" in 10 seconds.
 echo. Note: Migration is done to Users folder; if old user folder name is different from new user, unexpected results may occur.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 TIMEOUT 10
 echo. STARTING MIGRATION NOW!
 
-robocopy "%migSrcLet%:\StaplesBackup\Backup\Users" "C:\Users" /v /log+:"C:\Users\migrationLog.txt" /e /zb /mt:4 /r:3 /w:3 /copy:dt /tee /eta /xf "desktop.ini"
+robocopy "%migSrcLet%:\BotelhoBackup\Backup\Users" "C:\Users" /v /log+:"C:\Users\migrationLog.txt" /e /zb /mt:4 /r:3 /w:3 /copy:dt /tee /eta /xf "desktop.ini"
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 echo. MIGRATION COMPLETE. Displaying log file.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
@@ -194,36 +194,36 @@ IF NOT EXIST "%customDes%:\" GOTO :custominvalidletterbackDes
 IF NOT EXIST "%customSrc%:\Users" GOTO :xpcustombackup
 
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-echo. Valid selection. Starting Custom Backup from %customSrc%:\Users to "%customDes%:\StaplesBackup\Users" in 10 seconds.
+echo. Valid selection. Starting Custom Backup from %customSrc%:\Users to "%customDes%:\BotelhoBackup\Users" in 10 seconds.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 TIMEOUT 10
 echo. STARTING CUSTOM BACKUP NOW!
 
-mkdir "%customDes%:\StaplesBackup"
-mkdir "%customDes%:\StaplesBackup\Backup"
-mkdir "%customDes%:\StaplesBackup\Backup\Users"
-robocopy "%customSrc%:\Users" "%customDes%:\StaplesBackup\Backup\Users" /v /log+:"%customDes%:\StaplesBackup\backupLog.txt" /e /zb /mt:4 /r:3 /w:3 /copy:dt /tee /eta /xj /xf "NTUSER.DAT" /xf "NTUSER.DAT*" /xf "NTUSER.DAT.*" /xf "NETUSER.DAT" /xf "NETUSER.DAT*" /xf "dat.*" /xf "desktop.ini" /xd "OneDrive" /xd "Local Settings" /xd "AppData" /xd "Application Data" /xd "%customSrc%:\Users\All Users" /xd "%customSrc%:\Users\Default User" /xd "%customSrc%:\Users\Default" /xd "%customSrc%:\Users\DefaultAppPool" /xd "%customSrc%:\Users\Default.migrated"
+mkdir "%customDes%:\BotelhoBackup"
+mkdir "%customDes%:\BotelhoBackup\Backup"
+mkdir "%customDes%:\BotelhoBackup\Backup\Users"
+robocopy "%customSrc%:\Users" "%customDes%:\BotelhoBackup\Backup\Users" /v /log+:"%customDes%:\BotelhoBackup\backupLog.txt" /e /zb /mt:4 /r:3 /w:3 /copy:dt /tee /eta /xj /xf "NTUSER.DAT" /xf "NTUSER.DAT*" /xf "NTUSER.DAT.*" /xf "NETUSER.DAT" /xf "NETUSER.DAT*" /xf "dat.*" /xf "desktop.ini" /xd "OneDrive" /xd "Local Settings" /xd "AppData" /xd "Application Data" /xd "%customSrc%:\Users\All Users" /xd "%customSrc%:\Users\Default User" /xd "%customSrc%:\Users\Default" /xd "%customSrc%:\Users\DefaultAppPool" /xd "%customSrc%:\Users\Default.migrated"
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 echo. CUSTOM BACKUP COMPLETE. Please verify. Displaying log file.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-start "" "%customDes%:\StaplesBackup\backupLog.txt"
+start "" "%customDes%:\BotelhoBackup\backupLog.txt"
 GOTO :end
 
 :xpcustombackup
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-echo. Valid selection. XP Installation detected. Starting Custom Backup from %customSrc%:\Documents and Settings to "%customDes%:\StaplesBackup\Users" in 10 seconds.
+echo. Valid selection. XP Installation detected. Starting Custom Backup from %customSrc%:\Documents and Settings to "%customDes%:\BotelhoBackup\Users" in 10 seconds.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 TIMEOUT 10
 echo. STARTING XP CUSTOM BACKUP NOW!
 
-mkdir "%customDes%:\StaplesBackup"
-mkdir "%customDes%:\StaplesBackup\Backup"
-mkdir "%customDes%:\StaplesBackup\Backup\Users"
-robocopy "%customSrc%:\Documents and Settings" "%customDes%:\StaplesBackup\Backup\Users" /v /log+:"%customDes%:\StaplesBackup\backupLog.txt" /e /zb /mt:4 /r:3 /w:3 /copy:dt /tee /eta /xj /xf "NTUSER.DAT" /xf "NTUSER.DAT*" /xf "NTUSER.DAT.*" /xf "NETUSER.DAT" /xf "NETUSER.DAT*" /xf "dat.*" /xf "desktop.ini" /xd "OneDrive" /xd "Local Settings" /xd "AppData" /xd "Application Data" /xd "%customSrc%:\Documents and Settings\All Users" /xd "%customSrc%:\Documents and Settings\Default User" /xd "%customSrc%:\Documents and Settings\Default" /xd "%customSrc%:\Documents and Settings\DefaultAppPool" /xd "%customSrc%:\Documents and Settings\Default.migrated"
+mkdir "%customDes%:\BotelhoBackup"
+mkdir "%customDes%:\BotelhoBackup\Backup"
+mkdir "%customDes%:\BotelhoBackup\Backup\Users"
+robocopy "%customSrc%:\Documents and Settings" "%customDes%:\BotelhoBackup\Backup\Users" /v /log+:"%customDes%:\BotelhoBackup\backupLog.txt" /e /zb /mt:4 /r:3 /w:3 /copy:dt /tee /eta /xj /xf "NTUSER.DAT" /xf "NTUSER.DAT*" /xf "NTUSER.DAT.*" /xf "NETUSER.DAT" /xf "NETUSER.DAT*" /xf "dat.*" /xf "desktop.ini" /xd "OneDrive" /xd "Local Settings" /xd "AppData" /xd "Application Data" /xd "%customSrc%:\Documents and Settings\All Users" /xd "%customSrc%:\Documents and Settings\Default User" /xd "%customSrc%:\Documents and Settings\Default" /xd "%customSrc%:\Documents and Settings\DefaultAppPool" /xd "%customSrc%:\Documents and Settings\Default.migrated"
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 echo. CUSTOM XP BACKUP COMPLETE. Please verify. Displaying log file.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-start "" "%customDes%:\StaplesBackup\backupLog.txt"
+start "" "%customDes%:\BotelhoBackup\backupLog.txt"
 GOTO :end
 
 :cantusecback
@@ -260,7 +260,7 @@ GOTO :migration
 
 :nobackupfound
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-echo. Staples-made backup not found on the selected drive. Please try again.
+echo. Botelho-made backup not found on the selected drive. Please try again.
 echo. + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 TIMEOUT 3
 @cls
