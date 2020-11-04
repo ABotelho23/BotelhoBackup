@@ -1,6 +1,8 @@
 # BotelhoBackup
 ## BotelhoBackup: Windows Backup and Migration script
 
+## This repository has been archived on GitHub.com. Please see the project on GitLab: https://gitlab.com/ABotelho23/BotelhoBackup
+
 This backup script was originally designed from scratch for use in the Staples Canada store #17. It creates a backup of User folders from Windows Vista right up to Windows 10, in a standard format. It also logs the backup (and any migrations) to ensure they have completed successfully. It primarily uses *robocopy* to perform the backup, with particular exclusions and parameters to ensure the optimal performance of the script.
 
 I started this because of a lack of proper tools to perform this task that are available at the workplace. Copy and pasting via File Explorer was both slow, needed constant intervention, and usually doesn't succeed 100%. Robocopy has the ability to handle errors gracefully, as well as supply us with a log of the transfers that can be given to customers.
